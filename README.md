@@ -11,7 +11,7 @@
 
 ### Code example
 
-```
+```ruby
 def my_great_method
   puts "Here it is"
 end
