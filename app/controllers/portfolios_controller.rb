@@ -19,10 +19,26 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def edit
+    @portfolio_item = Portfolio.find(params[:id])
+  end
+
+  def update
+    @portfolio_item = Portfolio.find(params[:id])
+
+    respond_to do |format|
+      if @portfolio_item.update(portfolio_item_params)
+        format.html { redirect_to portfolios_path, notice: "The record was successfully updated." }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   # Only allow a list of trusted parameters through.
-    def portfolio_item_params
-      params.require(:portfolio).permit(:title, :subtitle, :body)
-    end
+  def portfolio_item_params
+    params.require(:portfolio).permit(:title, :subtitle, :body)
+  end
 end
