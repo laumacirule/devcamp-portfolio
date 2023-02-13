@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_26_061901) do
+ActiveRecord::Schema.define(version: 2023_02_13_064240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2023_01_26_061901) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.integer "status", default: 0
-    t.bigint "topic_id"
+    t.bigint "topic_id", default: 1
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
     t.index ["topic_id"], name: "index_blogs_on_topic_id"
   end
