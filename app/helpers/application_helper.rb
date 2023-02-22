@@ -15,4 +15,8 @@ module ApplicationHelper
     greeting = "Thanks for visiting me from #{session[:source]}! You are on the #{layout_name} layout."
     content_tag :p, greeting, class: 'source-greeting'
   end
+
+  def copyright_generator
+    LaumaViewTool::Render.copyright('Lauma Cirule', 'All rights reserved')
+  end
 end
